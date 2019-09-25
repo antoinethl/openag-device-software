@@ -54,33 +54,34 @@ class PeripheralManager(StateMachineManager):
         self.variables = self.parameters.get("variables", {})
         self.communication = self.parameters.get("communication", {})
 
-        # Initalize i2c bus
-        self.bus = self.communication.get("bus")
-        if self.bus == "default":
-            self.logger.debug("Using default i2c bus")
-            self.bus = os.getenv("DEFAULT_I2C_BUS")
-        if self.bus == "none":
-            self.bus = None
-        if self.bus != None:
-            self.bus = int(self.bus)
+        if self.communication is not None:
+            # Initalize i2c bus
+            self.bus = self.communication.get("bus")
+            if self.bus == "default":
+                self.logger.debug("Using default i2c bus")
+                self.bus = os.getenv("DEFAULT_I2C_BUS")
+            if self.bus == "none":
+                self.bus = None
+            if self.bus != None:
+                self.bus = int(self.bus)
 
-        # Initialize i2c mux
-        self.mux = self.communication.get("mux")
-        if self.mux == "default":
-            self.logger.debug("Using default i2c mux")
-            self.mux = os.getenv("DEFAULT_MUX_ADDRESS")
-        if self.mux == "none":
-            self.mux = None
-        if self.mux != None:
-            self.mux = int(self.mux, 16)
-          
-        # Initialize i2c channel
-        self.channel = self.communication.get("channel")
+            # Initialize i2c mux
+            self.mux = self.communication.get("mux")
+            if self.mux == "default":
+                self.logger.debug("Using default i2c mux")
+                self.mux = os.getenv("DEFAULT_MUX_ADDRESS")
+            if self.mux == "none":
+                self.mux = None
+            if self.mux != None:
+                self.mux = int(self.mux, 16)
 
-        # Initialize i2c address
-        self.address = self.communication.get("address")
-        if self.address != None:
-            self.address = int(self.address, 16)
+            # Initialize i2c channel
+            self.channel = self.communication.get("channel")
+
+            # Initialize i2c address
+            self.address = self.communication.get("address")
+            if self.address != None:
+                self.address = int(self.address, 16)
 
         # Load setup dict and uuid
         self.setup_dict = self.load_setup_dict_from_file()

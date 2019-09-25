@@ -26,7 +26,7 @@
             "NOTE": "READ this for the temp sensor",
             "id": "air_temp",
             "name": "Space Temp",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:1",
             "binary": false
         },
@@ -42,7 +42,7 @@
             "NOTE": "WRITE this for the temp set point",
             "id": "set_air_temp",
             "name": "Set Space Temp",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:89",
             "binary": false
         },
@@ -58,7 +58,7 @@
             "NOTE": "The rest of these are unused.",
             "id": "local_air_temp",
             "name": "Local Space Temp",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:3",
             "binary": false
         },
@@ -86,7 +86,7 @@
         {
             "id": "remote_temp_avg",
             "name": "Remote Space Temp Avg",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:7",
             "binary": false
         },
@@ -100,70 +100,70 @@
         {
             "id": "temp_1_in",
             "name": "Space Temp 1 Input",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:10",
             "binary": false
         },
         {
             "id": "temp_2_in",
             "name": "Space Temp 2 Input",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:11",
             "binary": false
         },
         {
             "id": "temp_3_in",
             "name": "Space Temp 3 Input",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:12",
             "binary": false
         },
         {
             "id": "temp_4_in",
             "name": "Space Temp 4 Input",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:13",
             "binary": false
         },
         {
             "id": "temp_5_in",
             "name": "Space Temp 5 Input",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:14",
             "binary": false
         },
         {
             "id": "temp_1_val",
             "name": "Space Temp 1 Value",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:15",
             "binary": false
         },
         {
             "id": "temp_2_val",
             "name": "Space Temp 2 Value",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:16",
             "binary": false
         },
         {
             "id": "temp_3_val",
             "name": "Space Temp 3 Value",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:17",
             "binary": false
         },
         {
             "id": "temp_4_val",
             "name": "Space Temp 4 Value",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:18",
             "binary": false
         },
         {
             "id": "temp_5_val",
             "name": "Space Temp 5 Value",
-            "units": "°F",
+            "units": "°C",
             "object_id": "analogValue:19",
             "binary": false
         },

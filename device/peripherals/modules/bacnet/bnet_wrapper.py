@@ -269,28 +269,30 @@ class Bnet(bnet_base.BnetBase):
         self.logger.info(f"set_test_voltage {voltage}")
         self.__write_value('test_v', voltage)
 
-
-    def set_air_temp(self, tempC: float) -> None:
-        # convert C to F
+    def __convert_c_to_f(self, tempC: float) -> float:
         tempF = (tempC * (9/5)) + 32
-        self.logger.info(f"set_air_temp {tempC}C > {tempF}F")
-        self.__write_value('set_air_temp', tempF)
+        return tempF
 
+    # TODO: Check config of air_temp to see if conversion of units is needed
+    def set_air_temp(self, tempC: float) -> None:
+        self.logger.info(f"set_air_temp {tempC}C")
+        self.__write_value('set_air_temp', tempC)
 
     def set_air_RH(self, RH: float) -> None:
         self.logger.info(f"set_air_RH {RH}")
         self.__write_value('set_air_rh', RH)
 
-
-    def get_air_temp(self) -> float:
-        tempF = self.__read_value('air_temp')
-        if tempF is None:
-            return None
-        # convert F to C
-        tempC = (tempF - 32) * (5/9)
-        self.logger.info(f"get_air_temp {tempC}C")
+    def __convert_f_to_c(self, tempF: float) -> float:
+        tempC = (tempF - 32) * (5 / 9)
         return tempC
 
+    # TODO: Check config of air_temp to see if conversion of units is needed
+    def get_air_temp(self) -> float:
+        tempC = self.__read_value('air_temp')
+        if tempC is None:
+            return None
+        self.logger.info(f"get_air_temp {tempC}C")
+        return tempC
 
     def get_air_RH(self) -> float:
         RH = self.__read_value('air_rh')

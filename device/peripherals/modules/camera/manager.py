@@ -27,8 +27,11 @@ class CameraManager(manager.PeripheralManager):  # type: ignore
         super().__init__(*args, **kwargs)
 
         # Get usb mux parameters
-        self.usb_mux_comms = self.communication.get("usb_mux_comms", None)
-        self.usb_mux_channel = self.communication.get("usb_mux_channel", None)
+        self.usb_mux_comms = None
+        self.usb_mux_channel = None
+        if self.communication is not None:
+            self.usb_mux_comms = self.communication.get("usb_mux_comms", None)
+            self.usb_mux_channel = self.communication.get("usb_mux_channel", None)
 
         # Initialize sampling parameters
         self.min_sampling_interval = 120  # seconds
